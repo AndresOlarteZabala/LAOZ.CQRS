@@ -1,7 +1,7 @@
 # Proyecto de ejemplo con Arquitectura CQRS en C#
 
 Un proyecto en C# utilizando la arquitectura CQRS (Command Query Responsibility Segregation) y aplicando los principios de arquitectura y código limpio puede ser un ejercicio educativo y práctico.
-Este es un proyecto de ejemplo que implementa la arquitectura CQRS (Command Query Responsibility Segregation) en C# utilizando Entity Framework Core y Dapper para la persistencia de datos.
+Este es un proyecto de ejemplo que implementa la arquitectura CQRS (Command Query Responsibility Segregation) en C# utilizando Entity Framework Core y Entity framework para la persistencia de datos.
 
 ## Estructura del Proyecto
 
