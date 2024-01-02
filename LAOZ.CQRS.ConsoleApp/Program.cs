@@ -16,8 +16,7 @@ namespace LAOZ.CQRS.ConsoleApp
             // Configuración de servicios
             var serviceProvider = new ServiceCollection()
                 .AddScoped<IConfiguration, Configuration>()
-                .AddDbContext<ApplicationDbContext>(options =>
-                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
+                //.AddDbContext<ApplicationDbContext>(options => options.UseS(Configuration["DefaultConnection:"]))
                 .AddScoped<IQueryRepository<GetInvoiceQuery>, QueryRepository<GetInvoiceQuery>>()
                 .AddScoped<ICommandRepository<CreateInvoiceCommand>, CommandRepository<CreateInvoiceCommand>>()
                 .AddScoped<IInvoiceService, InvoiceService>()
