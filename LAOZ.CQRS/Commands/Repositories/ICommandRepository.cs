@@ -2,10 +2,9 @@
 {
     public interface ICommandRepository<T>
     {
-        void Add(T entity);
-
-        void Update(T entity);
-
-        void Delete(T entity);
+        int Add(T entity);
+        int Update(T entity);
+        int Delete(T entity);
+        int ExecuteSqlCommand(string sqlCommand);
     }
 }

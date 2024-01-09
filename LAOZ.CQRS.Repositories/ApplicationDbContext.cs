@@ -3,13 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LAOZ.CQRS.ConsoleApp
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
     {
         public DbSet<Invoice> Invoices { get; set; }
-
-        // Constructor con opción de configuración
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-        }
     }
 }

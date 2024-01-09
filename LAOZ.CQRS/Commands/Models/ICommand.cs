@@ -1,7 +1,7 @@
 ﻿namespace LAOZ.CQRS.Commands
 {
-    public interface ICommand
+    public interface ICommand<T>
     {
-        Guid Id { get; }
+        T Id { get; }
     }
 }

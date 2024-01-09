@@ -16,7 +16,8 @@ namespace LAOZ.CQRS.ConsoleApp
             // Configuración de servicios
             var serviceProvider = new ServiceCollection()
                 .AddScoped<IConfiguration, Configuration>()
-                //.AddDbContext<ApplicationDbContext>(options => options.UseS(Configuration["DefaultConnection:"]))
+                //.AddDbContext<ApplicationDbContext>(options =>
+                //        options.UseSqlServer(Configuration["ConnectionStrings:CommandConnection"]))
                 .AddScoped<IQueryRepository<GetInvoiceQuery>, QueryRepository<GetInvoiceQuery>>()
                 .AddScoped<ICommandRepository<CreateInvoiceCommand>, CommandRepository<CreateInvoiceCommand>>()
                 .AddScoped<IInvoiceService, InvoiceService>()
@@ -25,7 +26,7 @@ namespace LAOZ.CQRS.ConsoleApp
             // Ejemplo de uso
             var invoiceService = serviceProvider.GetRequiredService<IInvoiceService>();
 
-            var createInvoiceCommand = new CreateInvoiceCommand(Guid.NewGuid(), 1)
+            var createInvoiceCommand = new CreateInvoiceCommand()
             {
                 CustomerName = "Cliente A",
                 TotalAmount = 100.00m

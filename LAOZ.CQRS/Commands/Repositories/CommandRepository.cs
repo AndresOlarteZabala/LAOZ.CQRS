@@ -1,5 +1,7 @@
 ﻿using LAOZ.CQRS.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Data.SqlClient;
 
 namespace LAOZ.CQRS.Infrastructure.Repositories.Commands
 {
@@ -14,19 +16,33 @@ namespace LAOZ.CQRS.Infrastructure.Repositories.Commands
             _dbSet = _context.Set<T>();
         }
 
-        public void Add(T entity)
+        public int Add(T entity)
         {
             _dbSet.Add(entity);
+            return 1;
         }
 
-        public void Update(T entity)
+        public int Update(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
+            return 1;
         }
 
-        public void Delete(T entity)
+        public int Delete(T entity)
         {
             _dbSet.Remove(entity);
+            return 1;
+        }
+
+        public int ExecuteSqlCommand(string sqlCommand)
+        {
+            using (SqlConnection connection = new())
+            {
+                connection.Open();
+
+                using SqlCommand command = new(sqlCommand, connection);
+                return command.ExecuteNonQuery();
+            }
         }
     }
 }
