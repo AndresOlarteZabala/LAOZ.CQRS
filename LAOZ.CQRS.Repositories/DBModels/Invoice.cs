@@ -105,4 +105,12 @@
         public decimal Percentage { get; set; }
     }
 
+    public class InvoiceItemProduct
+    {
+        public Guid Id { get; set; }
+        public Guid InvoiceItemId { get; set; }
+        public Guid ProductId { get; set; }
+        public int Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+    }
 }
