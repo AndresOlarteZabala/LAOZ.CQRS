@@ -2,7 +2,6 @@ using LAOZ.CQRS.Commands;
 using LAOZ.CQRS.Infrastructure.Repositories.Commands;
 using LAOZ.CQRS.Infrastructure.Repositories.Queries;
 using LAOZ.CQRS.Queries;
-using LAOZ.CQRS.Repositories;
 using LAOZ.CQRS.Repositories.Interfaces;
 using System.Text.Json.Serialization;
 

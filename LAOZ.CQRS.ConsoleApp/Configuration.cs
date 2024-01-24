@@ -21,7 +21,7 @@ namespace LAOZ.CQRS.ConsoleApp
 
         public string this[string key]
         {
-            get => _configurations.TryGetValue(key, out var value) ? value : null;
+            get => _configurations.TryGetValue(key, out string? value) ? value : null;
             set => _configurations[key] = value;
         }
 

@@ -1,4 +1,4 @@
-﻿using LAOZ.CQRS.Adapters;
+﻿ using LAOZ.CQRS.Adapters;
 
 namespace LAOZ.CQRS.Infrastructure.Adapters
 {
@@ -96,5 +96,4 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
         }
         #endregion
     }
-
 }

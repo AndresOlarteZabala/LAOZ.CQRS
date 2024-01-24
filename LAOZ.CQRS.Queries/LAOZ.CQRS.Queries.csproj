@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\LAOZ.CQRS.Repositories\LAOZ.CQRS.Repositories.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LAOZ.CQRS\LAOZ.CQRS.csproj" />
+    <PackageReference Include="SSH.NET" Version="2023.0.1" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
 </Project>

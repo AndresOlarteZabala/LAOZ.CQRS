@@ -14,7 +14,6 @@
     <ProjectReference Include="..\LAOZ.CQRS.Commands\LAOZ.CQRS.Commands.csproj" />
     <ProjectReference Include="..\LAOZ.CQRS.Handlers\LAOZ.CQRS.Handlers.csproj" />
     <ProjectReference Include="..\LAOZ.CQRS.Queries\LAOZ.CQRS.Queries.csproj" />
-    <ProjectReference Include="..\LAOZ.CQRS.Repositories\LAOZ.CQRS.Repositories.csproj" />
     <ProjectReference Include="..\LAOZ.CQRS\LAOZ.CQRS.csproj" />
   </ItemGroup>
 

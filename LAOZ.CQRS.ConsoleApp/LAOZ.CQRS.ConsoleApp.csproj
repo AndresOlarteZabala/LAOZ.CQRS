@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LAOZ.CQRS.Commands\LAOZ.CQRS.Commands.csproj" />
-    <ProjectReference Include="..\LAOZ.CQRS.Repositories\LAOZ.CQRS.Repositories.csproj" />
     <ProjectReference Include="..\LAOZ.CQRS.Services\LAOZ.CQRS.Services.csproj" />
   </ItemGroup>
 

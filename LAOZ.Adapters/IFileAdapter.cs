@@ -13,10 +13,4 @@
         Task<bool> DeleteFileAsync(string filePath);
         Task<bool> FileExistsAsync(string filePath);
     }
-    public interface IStream
-    {
-        void Write(byte[] buffer, int offset, int count);
-        int Read(byte[] buffer, int offset, int count);
-        void Close();
-    }
 }

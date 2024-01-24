@@ -3,7 +3,7 @@ using LAOZ.CQRS.Repositories.Interfaces;
 
 namespace LAOZ.CQRS.Handlers
 {
-    public class CreateInvoiceCommandHandler : ICommandHandler<CreateInvoiceCommand> 
+    public class CreateInvoiceCommandHandler : ICommandHandler<CreateInvoiceCommand, Guid> 
     {
         private readonly ICommandRepository<CreateInvoiceCommand> _repository;
 

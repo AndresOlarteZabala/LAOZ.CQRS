@@ -2,8 +2,8 @@
 
 namespace LAOZ.CQRS.Handlers
 {
-    public interface ICommandHandlerFactory
+    public interface ICommandHandlerFactory<TId>
     {
-        ICommandHandler<T> Handler<T>() where T : BaseCommand;
+        ICommandHandler<T, TId> Handler<T>() where T : BaseCommand<TId>;
     }
 }

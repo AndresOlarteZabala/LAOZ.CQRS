@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LAOZ.CQRS.Repositories\LAOZ.CQRS.Repositories.csproj" />
     <ProjectReference Include="..\LAOZ.CQRS.Services\LAOZ.CQRS.Services.csproj" />
   </ItemGroup>
 

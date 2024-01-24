@@ -14,7 +14,7 @@ namespace LAOZ.CQRS.Services
             _queryRepository = queryRepository;
             _commandRepository = commandRepository;
         }
-
+        
         public GetInvoiceQuery CreateInvoice(string customerName, decimal totalAmount)
         {
             var createInvoiceCommand = new CreateInvoiceCommand(Guid.NewGuid(), 0)

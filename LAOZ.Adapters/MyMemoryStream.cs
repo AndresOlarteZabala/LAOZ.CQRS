@@ -1,13 +1,13 @@
-﻿using LAOZ.CQRS.Adapters;
+﻿using LAOZ.Adapters;
 
 namespace LAOZ.CQRS.Infrastructure.Adapters
 {
-    public class MyCustomStream : IStream
+    public class MyMemoryStream : IStream
     {
         private MemoryStream stream;
         public MemoryStream Stream { get => stream; internal set => stream = value; }
 
-        public MyCustomStream()
+        public MyMemoryStream()
         {
             stream = new MemoryStream();
         }

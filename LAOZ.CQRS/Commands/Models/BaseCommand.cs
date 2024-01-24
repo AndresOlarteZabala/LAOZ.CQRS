@@ -1,13 +1,8 @@
 ﻿namespace LAOZ.CQRS.Commands
 {
-    public class BaseCommand : ICommand
+    public class BaseCommand<T>(T id, int version) : ICommand<T>
     {
-        public Guid Id { get; private set; }
-        public int Version { get; private set; }
-        public BaseCommand(Guid id, int version)
-        {
-            Id = id;
-            Version = version;
-        }
+        public T Id { get; private set; } = id;
+        public int Version { get; private set; } = version;
     }
 }
