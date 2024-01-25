@@ -2,14 +2,34 @@
 {
     public interface IQueueAdapter
     {
-        Task EnqueueMessage(string queueName, string message);
+        /// <summary>
+        /// Enqueue a message to the queue.
+        /// </summary>
+        /// <param name="message"></param>
+        Task EnqueueMessage(string message);
 
-        Task<string> DequeueMessage(string queueName);
+        /// <summary>
+        /// Dequeue a message from the queue.
+        /// </summary>
+        /// <returns></returns>
+        Task<string> DequeueMessage();
 
-        Task<bool> QueueExists(string queueName);
+        /// <summary>
+        /// Check if the queue exists.
+        /// </summary>
+        /// <returns></returns>
+        Task<bool> QueueExists();
 
-        Task CreateQueue(string queueName);
+        /// <summary>
+        /// Create the queue if it doesn't exist.
+        /// </summary>
+        /// <returns></returns>
+        Task CreateQueue();
 
-        Task DeleteQueue(string queueName);
+        /// <summary>
+        /// Delete the queue if it exists.
+        /// </summary>
+        /// <returns></returns>
+        Task DeleteQueue();
     }
 }

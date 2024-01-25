@@ -3,12 +3,21 @@ using Renci.SshNet;
 
 namespace LAOZ.CQRS.Infrastructure.Adapters
 {
+    /// <summary>
+    /// Sftp file adapter.
+    /// </summary>
     public class SftpFileAdapter : IFileAdapter
     {
         private readonly string host;
         private readonly string username;
         private readonly string password;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:LAOZ.CQRS.Infrastructure.Adapters.SftpFileAdapter"/> class.
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
         public SftpFileAdapter(string host, string username, string password)
         {
             this.host = host;
@@ -16,6 +25,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             this.password = password;
         }
 
+        /// <summary>
+        /// File exists.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public bool FileExists(string filePath)
         {
             using (var sftp = CreateSftpClient())
@@ -24,6 +38,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// Reads the file.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public bool ReadFile(string filePath)
         {
             var sftp = CreateSftpClient();
@@ -45,6 +64,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
 
         }
 
+        /// <summary>
+        /// Creates the file.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public bool CreateFile(string filePath)
         {
             var sftp = CreateSftpClient();
@@ -65,6 +89,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// Delete the file.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public bool DeleteFile(string filePath)
         {
             using (var sftp = CreateSftpClient())
@@ -81,6 +110,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// Directory exists.
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
         public bool DirectoryExists(string directoryPath)
         {
             using (var sftp = CreateSftpClient())
@@ -89,6 +123,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// Creates the directory.
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
         public bool CreateDirectory(string directoryPath)
         {
             using (var sftp = CreateSftpClient())
@@ -105,6 +144,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// List the files.
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
         public string[] ListFiles(string directoryPath)
         {
             using (var sftp = CreateSftpClient())
@@ -114,6 +158,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// List the directories.
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
         public bool DeleteDirectory(string directoryPath)
         {
             using (var sftp = CreateSftpClient())
@@ -130,6 +179,10 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// Creates the sftp client.
+        /// </summary>
+        /// <returns></returns>
         private SftpClient CreateSftpClient()
         {
             var connectionInfo = new ConnectionInfo(host, username, new PasswordAuthenticationMethod(username, password));
@@ -147,7 +200,7 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
         public Task<bool> FileExistsAsync(string filePath)
         {
             throw new NotImplementedException();
-        } 
+        }
         #endregion
     }
 

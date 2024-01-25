@@ -1,14 +1,27 @@
-﻿ using LAOZ.CQRS.Adapters;
+﻿using LAOZ.CQRS.Adapters;
 
 namespace LAOZ.CQRS.Infrastructure.Adapters
 {
+    /// <summary>
+    /// File system file adapter.
+    /// </summary>
     public class FileSystemFileAdapter : IFileAdapter
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:LAOZ.CQRS.Infrastructure.Adapters.FileSystemFileAdapter"/> class.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public bool FileExists(string filePath)
         {
             return File.Exists(filePath);
         }
 
+        /// <summary>
+        /// Reads the file.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public bool ReadFile(string filePath)
         {
             try
@@ -22,6 +35,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// Creates the file.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public bool CreateFile(string filePath)
         {
             try
@@ -35,6 +53,11 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// Delete the file.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public bool DeleteFile(string filePath)
         {
             try
@@ -48,11 +71,21 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// Directory exists.
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
         public bool DirectoryExists(string directoryPath)
         {
             return Directory.Exists(directoryPath);
         }
 
+        /// <summary>
+        /// Creates the directory.
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
         public bool CreateDirectory(string directoryPath)
         {
             try
@@ -66,11 +99,21 @@ namespace LAOZ.CQRS.Infrastructure.Adapters
             }
         }
 
+        /// <summary>
+        /// List the files.
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
         public string[] ListFiles(string directoryPath)
         {
             return Directory.GetFiles(directoryPath);
         }
 
+        /// <summary>
+        /// List the directories.
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
         public bool DeleteDirectory(string directoryPath)
         {
             try

@@ -3,17 +3,32 @@ using System.Text;
 
 namespace LAOZ.CQRS.Adapters.Azure
 {
+    /// <summary>
+    /// Clase AesCryptoAdapter que implementa la interfaz ICryptoAdapter.
+    /// Esta clase se utiliza para realizar operaciones de cifrado y descifrado utilizando el algoritmo AES.
+    /// </summary>
     public class AesCryptoAdapter : ICryptoAdapter
     {
         private readonly string key;
         private readonly string iv;
 
+         /// <summary>
+        /// Constructor de la clase AesCryptoAdapter.
+        /// Inicializa una nueva instancia de la clase AesCryptoAdapter.
+        /// </summary>
+        /// <param name="key">La clave de cifrado.</param>
+        /// <param name="iv">El vector de inicialización.</param>
         public AesCryptoAdapter(string key, string iv)
         {
             this.key = key;
             this.iv = iv;
         }
 
+        /// <summary>
+        /// Encripta los datos proporcionados utilizando AES.
+        /// </summary>
+        /// <param name="data">Los datos a encriptar.</param>
+        /// <returns>Los datos encriptados.</returns>
         public string Encrypt(string plaintext)
         {
             using (Aes aesAlg = Aes.Create())
@@ -38,6 +53,11 @@ namespace LAOZ.CQRS.Adapters.Azure
             }
         }
 
+        /// <summary>
+        /// Desencripta los datos proporcionados utilizando AES.
+        /// </summary>
+        /// <param name="data">Los datos a desencriptar.</param>
+        /// <returns>Los datos desencriptados.</returns>
         public string Decrypt(string ciphertext)
         {
             using (Aes aesAlg = Aes.Create())
@@ -60,6 +80,11 @@ namespace LAOZ.CQRS.Adapters.Azure
             }
         }
 
+        /// <summary>
+        /// Encripta los datos proporcionados utilizando AES.
+        /// </summary>
+        /// <param name="data">Los datos a encriptar.</param>
+        /// <returns>Los datos encriptados.</returns>
         public byte[] Encrypt(byte[] data)
         {
             using (Aes aesAlg = Aes.Create())
@@ -82,6 +107,11 @@ namespace LAOZ.CQRS.Adapters.Azure
             }
         }
 
+        /// <summary>
+        /// Desencripta los datos proporcionados utilizando AES.
+        /// </summary>
+        /// <param name="data">Los datos a desencriptar.</param>
+        /// <returns>Los datos desencriptados.</returns>
         public byte[] Decrypt(byte[] data)
         {
             using (Aes aesAlg = Aes.Create())
@@ -105,6 +135,11 @@ namespace LAOZ.CQRS.Adapters.Azure
             }
         }
 
+        /// <summary>
+        /// Encripta el archivo especificado y escribe los datos encriptados en un nuevo archivo.
+        /// </summary>
+        /// <param name="inputFilePath">La ruta del archivo a encriptar.</param>
+        /// <param name="outputFilePath">La ruta donde se escribirá el archivo encriptado.</param>
         public void EncryptFile(string inputFilePath, string outputFilePath)
         {
             byte[] inputFileBytes = File.ReadAllBytes(inputFilePath);
@@ -112,6 +147,11 @@ namespace LAOZ.CQRS.Adapters.Azure
             File.WriteAllBytes(outputFilePath, encryptedBytes);
         }
 
+        /// <summary>
+        /// Desencripta el archivo especificado y escribe los datos desencriptados en un nuevo archivo.
+        /// </summary>
+        /// <param name="inputFilePath">La ruta del archivo a desencriptar.</param>
+        /// <param name="outputFilePath">La ruta donde se escribirá el archivo desencriptado.</param>
         public void DecryptFile(string inputFilePath, string outputFilePath)
         {
             byte[] inputFileBytes = File.ReadAllBytes(inputFilePath);
@@ -119,5 +159,4 @@ namespace LAOZ.CQRS.Adapters.Azure
             File.WriteAllBytes(outputFilePath, decryptedBytes);
         }
     }
-
 }

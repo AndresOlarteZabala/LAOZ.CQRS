@@ -33,7 +33,8 @@ namespace LAOZ.CQRS.Services
         {
             var getInvoiceQuery = new GetInvoiceQuery
             {
-                InvoiceId = invoiceId
+                InvoiceId = invoiceId,
+                CustomerName = string.Empty // Establecer el valor de la propiedad CustomerName
             };
 
             var getInvoiceHandler = new Handlers.GetInvoiceQueryHandler(_queryRepository);
